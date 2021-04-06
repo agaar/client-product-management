@@ -11,6 +11,8 @@ import { DetailsComponent } from './components/user/details/details.component';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 import { UserListComponent } from './components/admin/user-list/user-list.component';
 import { ProductListComponent } from './components/admin/product-list/product-list.component';
+import { UserTemplateComponent } from './components/template/user-template/user-template.component';
+import { AdminTemplateComponent } from './components/template/admin-template/admin-template.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ProductListComponent } from './components/admin/product-list/product-li
     DetailsComponent,
     DashboardComponent,
     UserListComponent,
-    ProductListComponent
+    ProductListComponent,
+    UserTemplateComponent,
+    AdminTemplateComponent
   ],
   imports: [
     BrowserModule,
