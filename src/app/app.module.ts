@@ -13,6 +13,8 @@ import { UserListComponent } from './components/admin/user-list/user-list.compon
 import { ProductListComponent } from './components/admin/product-list/product-list.component';
 import { UserTemplateComponent } from './components/template/user-template/user-template.component';
 import { AdminTemplateComponent } from './components/template/admin-template/admin-template.component';
+import { NotFoundComponent } from './components/error/not-found/not-found.component';
+import { UnauthorizedComponent } from './components/error/unauthorized/unauthorized.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { AdminTemplateComponent } from './components/template/admin-template/adm
     UserListComponent,
     ProductListComponent,
     UserTemplateComponent,
-    AdminTemplateComponent
+    AdminTemplateComponent,
+    NotFoundComponent,
+    UnauthorizedComponent
   ],
   imports: [
     BrowserModule,
