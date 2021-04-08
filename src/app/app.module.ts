@@ -16,6 +16,10 @@ import { AdminTemplateComponent } from './components/template/admin-template/adm
 import { NotFoundComponent } from './components/error/not-found/not-found.component';
 import { UnauthorizedComponent } from './components/error/unauthorized/unauthorized.component';
 
+import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule, MatSelectModule,
+   MatFormFieldModule, MatTableModule , MatPaginatorModule , MatSortModule, MatProgressBarModule, MatIconModule} from '@angular/material';
+import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +38,10 @@ import { UnauthorizedComponent } from './components/error/unauthorized/unauthori
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule, MatSelectModule,
+   MatFormFieldModule, MatTableModule , MatPaginatorModule , MatSortModule, MatProgressBarModule, MatIconModule,
+   BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
