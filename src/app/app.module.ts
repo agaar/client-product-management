@@ -19,6 +19,8 @@ import { UnauthorizedComponent } from './components/error/unauthorized/unauthori
 import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule, MatSelectModule,
    MatFormFieldModule, MatTableModule , MatPaginatorModule , MatSortModule, MatProgressBarModule, MatIconModule} from '@angular/material';
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,10 @@ import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule, MatSelectModule,
    MatFormFieldModule, MatTableModule , MatPaginatorModule , MatSortModule, MatProgressBarModule, MatIconModule,
-   BrowserAnimationsModule
+   BrowserAnimationsModule,
+   HttpClientModule,
+   FormsModule,
+   ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
