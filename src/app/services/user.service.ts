@@ -32,7 +32,7 @@ export class UserService {
       }:{});
 
       return this.http.get<any> (API_URL + "login", {headers: headers})
-      .pipe(map(response => {
+      .pipe(map((response: any) => {
         if(response){
           localStorage.setItem('currentUser', JSON.stringify(response));
           this.currentUserSubject.next(user);
@@ -44,7 +44,7 @@ export class UserService {
 
     logOut(): Observable<any> {
       return this.http.post(API_URL + "logout", {})
-      .pipe(map(response => {
+      .pipe(map((response: any) => {
         localStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);
       }));
