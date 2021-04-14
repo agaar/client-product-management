@@ -43,12 +43,22 @@ import { TransactionListComponent } from './components/admin/transaction-list/tr
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule, MatSelectModule,
-   MatFormFieldModule, MatTableModule , MatPaginatorModule , MatSortModule, MatProgressBarModule, MatIconModule,
-   BrowserAnimationsModule,
-   HttpClientModule,
-   FormsModule,
-   ReactiveFormsModule
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatListModule,
+    MatToolbarModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressBarModule,
+    MatIconModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
