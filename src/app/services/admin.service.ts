@@ -33,13 +33,13 @@ export class AdminService {
   }
 
   findAllUsers(): Observable<any> {
-    this.http.get(API_URL + "user-all",
-    {headers: this.headers});
+    return this.http.get(API_URL + "user-all",
+      { headers: this.headers });
   }
 
   numberOfUsers(): Observable<any> {
-    this.http.get(API_URL + "user-number",
-    {headers: this.headers});
+    return this.http.get(API_URL + "user-number",
+      { headers: this.headers });
   }
 
   createProduct(product: Product): Observable<any> {
@@ -53,8 +53,8 @@ export class AdminService {
   }
 
   deleteProduct(product: Product): Observable<any> {
-    this.http.post(API_URL + "product-delete", JSON.stringify(product),
-    {headers: this.headers});
+    return this.http.post(API_URL + "product-delete", JSON.stringify(product),
+      { headers: this.headers });
   }
 
   findAllProducts(): Observable<any> {

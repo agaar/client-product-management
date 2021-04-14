@@ -11,7 +11,7 @@ import { UserService } from './services/user.service';
 })
 export class AppComponent {
   title = 'client-product-management';
-  currentUser: User;
+  currentUser!: User;
   isAdminPanel: boolean = false;
   
   constructor(private userService: UserService, private router: Router){
@@ -30,10 +30,11 @@ userChanged(){
   }
   this.router.events.subscribe((evt) => {
     if(evt instanceof RoutesRecognized){
-      var roles = evt.state.root.firstChild.data.roles;
+      var roles = evt.state.root.firstChild!.data.roles;
       if(roles && roles.indexOf(this.currentUser.role)!== -1){
         this.isAdminPanel = true;
       }
     }
   });
+}
 }

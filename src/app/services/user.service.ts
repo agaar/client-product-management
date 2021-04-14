@@ -46,7 +46,7 @@ export class UserService {
       return this.http.post(API_URL + "logout", {})
       .pipe(map((response: any) => {
         localStorage.removeItem('currentUser');
-        this.currentUserSubject.next(null);
+        this.currentUserSubject.next(response);
       }));
     }
 

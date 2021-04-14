@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./admin-template.component.css']
 })
 export class AdminTemplateComponent implements OnInit {
-  currentUser: User;
+  currentUser!: User;
   
   constructor(private userService: UserService, private router: Router) { 
     this.userService.currentUser.subscribe(data => {
