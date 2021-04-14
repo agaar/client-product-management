@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../model/product';
 import { User } from '../model/user';
@@ -11,62 +11,70 @@ let API_URL = "http://localhost:8080/api/admin/"
   providedIn: 'root'
 })
 export class AdminService {
+  currentUser: User;
+  headers: HttpHeaders;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    this.headers = new HttpHeaders({
+      authorization:'Bearer ' + this.currentUser.token,
+      "Content-Type":"application/json; charset=UTF-8"
+    });
+  }
 
   updateUser(user: User): Observable<any> {
     return this.http.put(API_URL + "user-update", JSON.stringify(user),
-    {headers: {"Content-Type": "application/json; charset=UTF-8"}});
+    {headers: this.headers});
   }
 
   deleteUser(user: User): Observable<any> {
     return this.http.post(API_URL + "user-delete", JSON.stringify(user),
-    {headers: {"Content-Type": "application/json; charset=UTF-8"}});
+    {headers: this.headers});
   }
 
   findAllUsers(): Observable<any> {
     this.http.get(API_URL + "user-all",
-    {headers: {"Content-Type": "application/json; charset=UTF-8"}});
+    {headers: this.headers});
   }
 
   numberOfUsers(): Observable<any> {
     this.http.get(API_URL + "user-number",
-    {headers: {"Content-Type": "application/json; charset=UTF-8"}});
+    {headers: this.headers});
   }
 
   createProduct(product: Product): Observable<any> {
     return this.http.post(API_URL + "product-create", JSON.stringify(product),
-    {headers: {"Content-Type": "application/json; charset=UTF-8"}});
+    {headers: this.headers});
   }
 
   updateProduct(product: Product): Observable<any> {
     return this.http.put(API_URL + "product-update", JSON.stringify(product),
-    {headers: {"Content-Type": "application/json; charset=UTF-8"}});
+    {headers: this.headers});
   }
 
   deleteProduct(product: Product): Observable<any> {
     this.http.post(API_URL + "product-delete", JSON.stringify(product),
-    {headers: {"Content-Type": "application/json; charset=UTF-8"}});
+    {headers: this.headers});
   }
 
   findAllProducts(): Observable<any> {
     return this.http.get(API_URL + "product-all", 
-    {headers: {"Content-Type": "application/json; charset=UTF-8"}});
+    {headers: this.headers});
   }
 
   numberOfProducts(): Observable<any> {
     return this.http.get(API_URL + "product-number", 
-    {headers: {"Content-Type": "application/json; charset=UTF-8"}});
+    {headers: this.headers});
   }
 
   findAllTransactions(): Observable<any> {
     return this.http.get(API_URL + "transaction-all", 
-    {headers: {"Content-Type": "application/json; charset=UTF-8"}});
+    {headers: this.headers});
   }
 
   numberOfTransactions(): Observable<any> {
     return this.http.get(API_URL + "transaction-number", 
-    {headers: {"Content-Type": "application/json; charset=UTF-8"}});
+    {headers: this.headers});
   }
 }
 
