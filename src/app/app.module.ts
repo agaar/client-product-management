@@ -21,6 +21,7 @@ import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolb
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { TransactionListComponent } from './components/admin/transaction-list/transaction-list.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
     UserTemplateComponent,
     AdminTemplateComponent,
     NotFoundComponent,
-    UnauthorizedComponent
+    UnauthorizedComponent,
+    TransactionListComponent
   ],
   imports: [
     BrowserModule,
