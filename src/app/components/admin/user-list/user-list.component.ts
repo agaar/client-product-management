@@ -2,9 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
 import {MatPaginator, MatTableDataSource, MatSort} from "@angular/material";
 import { User } from 'src/app/model/user';
-import { $ } from 'protractor';
 
-declare var $any;
+
+declare var $: any;
 
 @Component({
   selector: 'app-user-list',
