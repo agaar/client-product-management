@@ -12,12 +12,12 @@ declare var $: any;
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  userList: Array<User>;
+  userList!: Array<User>;
   dataSource: MatTableDataSource<User> = new MatTableDataSource();
   displayedColumns: string[] = ['id' , 'name', 'username' , 'action'];
   selectedUser: User = new User();
-  errorMessage: string;
-  infoMessage: string;
+  errorMessage!: string;
+  infoMessage!: string;
 
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

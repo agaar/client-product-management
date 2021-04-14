@@ -9,7 +9,7 @@ import { Transaction } from 'src/app/model/transaction';
   styleUrls: ['./transaction-list.component.css']
 })
 export class TransactionListComponent implements OnInit {
-  transactionList: Array<Transaction>;
+  transactionList!: Array<Transaction>;
   dataSource: MatTableDataSource<Transaction> = new MatTableDataSource();
   displayedColumns: string[] = ['id', 'user', 'product'];
   
