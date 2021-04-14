@@ -35,7 +35,7 @@ export class UserService {
       .pipe(map((response: any) => {
         if(response){
           localStorage.setItem('currentUser', JSON.stringify(response));
-          this.currentUserSubject.next(user);
+          this.currentUserSubject.next(response);
         }
         return response;
         
