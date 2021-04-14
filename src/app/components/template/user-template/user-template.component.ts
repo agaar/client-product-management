@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Role } from 'src/app/model/role';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/services/user.service';
@@ -10,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserTemplateComponent implements OnInit {
   currentUser: User;
-  constructor(private userService: UserService) { 
+  constructor(private userService: UserService, private router: Router) { 
     this.currentUser = this.userService.currentUser.subscribe(data => {
       this.currentUser = data;
     });

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Role } from 'src/app/model/role';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-admin-template',
@@ -6,10 +9,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-template.component.css']
 })
 export class AdminTemplateComponent implements OnInit {
-
-  constructor() { }
+  currentUser: User;
+  
+  constructor(private userService: UserService, private router: Router) { 
+    this.userService.currentUser.subscribe(data => {
+      this.currentUser = data;
+    });
+    
+  
+ 
+  }
 
   ngOnInit(): void {
   }
 
-}
+  logOut(){
+    this.userService.logOut().subscribe(data => {
+      this.router.navigate(['/login']);
+    });
+  }
+
+
+ }
+
