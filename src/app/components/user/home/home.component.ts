@@ -59,12 +59,13 @@ export class HomeComponent implements OnInit {
   purchaseProduct(product: Product){
     if(!this.currentUser){
       this.errorMessage = "You should sign in to purchase a product";
+      return;
     }
     var transaction = new Transaction();
     transaction.product = product;
     transaction.user = this.currentUser;
     this.userService.purchaseProduct(transaction).subscribe((data: any) => {
-      this.infoMessage = "Mission completed";
+      this.infoMessage = "Purchase completed";
 
     },(err: any)=> {
       this.errorMessage = "Unexpected error occurred";

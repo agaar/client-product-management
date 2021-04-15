@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginComponent implements OnInit {
   user: User = new User();
-  errorMessage!: string;
+  errorMessage: string | undefined;
   
   constructor(private userService: UserService, private router: Router) { }
 
