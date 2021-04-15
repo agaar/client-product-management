@@ -8,7 +8,7 @@ import { Product } from 'src/app/model/product';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-  productId: string;
+  productId!: string;
   currentProduct: Product;
 
   constructor(private route: ActivatedRoute) {

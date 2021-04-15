@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
 import {Product} from '../../../model/product';
 import {MatPaginator, MatTableDataSource, MatSort} from "@angular/material";
@@ -11,12 +11,12 @@ declare var $: any;
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  productList: Array<Product>;
+  productList!: Array<Product>;
   dataSource: MatTableDataSource<Product> = new MatTableDataSource();
   displayedColumns: string[] = ['id' , 'name', 'price' , 'action'];
   selectedProduct: Product = new Product();
-  errorMessage: string;
-  infoMessage: string;
+  errorMessage!: string;
+  infoMessage!: string;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -44,7 +44,7 @@ export class ProductListComponent implements OnInit {
     $('#productModal').modal('show');
   }
 
-  editproductRequest(product: Product) {
+  editProductRequest(product: Product) {
     this.selectedProduct = product;
     $("#productModal").modal('show');
   }

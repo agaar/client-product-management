@@ -15,11 +15,11 @@ import { User } from 'src/app/model/user';
 export class HomeComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  productList: Array<Product>;
+  productList!: Array<Product>;
   dataSource: MatTableDataSource<Product> = new MatTableDataSource();
-  obs: Observable<any>;
-  errorMessage: string;
-  infoMessage: string;
+  obs!: Observable<any>;
+  errorMessage!: string;
+  infoMessage!: string;
   currentUser: User;
 
   
