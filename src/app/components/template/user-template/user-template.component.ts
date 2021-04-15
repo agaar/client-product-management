@@ -10,9 +10,9 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-template.component.css']
 })
 export class UserTemplateComponent implements OnInit {
-  currentUser: User;
+  currentUser!: User;
   constructor(private userService: UserService, private router: Router) { 
-    this.currentUser = this.userService.currentUser.subscribe(data => {
+    this.userService.currentUser.subscribe(data => {
       this.currentUser = data;
     });
   }

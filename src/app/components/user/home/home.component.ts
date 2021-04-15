@@ -1,6 +1,9 @@
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
-import {MatPaginator, MatTableDataSource, MatSort} from "@angular/material";
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+
 import { Router } from '@angular/router';
 import {Observable} from "rxjs";
 import { Product } from 'src/app/model/product';
@@ -13,7 +16,8 @@ import { User } from 'src/app/model/user';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
 
   productList!: Array<Product>;
   dataSource: MatTableDataSource<Product> = new MatTableDataSource();
