@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false, limit: '20mb' }));
 app.use(cors());
 
 // Point static path to dist
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'dist/client-product-management')));
 
 // Set our api routes proxy to point to spring boot server
 //app.use('/server', proxy('http://localhost:8091'));
