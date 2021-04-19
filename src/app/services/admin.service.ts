@@ -4,8 +4,9 @@ import { Product } from '../model/product';
 import { User } from '../model/user';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
-let API_URL = "http://localhost:8080/api/admin/"
+let API_URL = environment.baseUrl + "api/admin/"
 
 @Injectable({
   providedIn: 'root'
