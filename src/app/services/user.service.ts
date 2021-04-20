@@ -7,7 +7,7 @@ import { Product } from '../model/product';
 import { Transaction } from '../model/transaction';
 import { environment } from 'src/environments/environment';
 
-let API_URL = environment.baseUrl + "api/user/"
+let API_URL = environment.baseUrl + "/api/user/"
 
 
 @Injectable({

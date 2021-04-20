@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://raga-admin-panel-be.herokuapp.com/'
+  baseUrl: 'https://raga-admin-panel-be.herokuapp.com'
 };

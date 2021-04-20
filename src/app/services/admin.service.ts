@@ -6,14 +6,14 @@ import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
-let API_URL = environment.baseUrl + "api/admin/"
+let API_URL = environment.baseUrl + "/api/admin/"
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
-  currentUser: User;
-  headers: HttpHeaders;
+  currentUser!: User;
+  headers!: HttpHeaders;
 
   constructor(private http: HttpClient) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
