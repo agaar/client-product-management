@@ -10,12 +10,12 @@ const app = express();
 
 // Parsers for POST data
 app.use(bodyParser.json({limit: '20mb'}));
-app.use(bodyParser.urlencoded({ extended: false, limit: '20mb' }));
+//app.use(bodyParser.urlencoded({ extended: false, limit: '20mb' }));
 
 app.use(cors());
 
 // Point static path to dist
-app.use(express.static(path.join(__dirname, 'dist/client-product-management')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 // Set our api routes proxy to point to spring boot server
 //app.use('/server', proxy('http://localhost:8091'));
@@ -28,7 +28,7 @@ app.use('/server', proxy(PROXY_URL));
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/client-product-management/index.html')); 
+  res.sendFile(path.join(__dirname, 'dist/index.html')); 
 });
 
 /**
