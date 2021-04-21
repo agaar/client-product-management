@@ -65,7 +65,7 @@ export class ProductListComponent implements OnInit {
     this.adminService.createProduct(this.selectedProduct).subscribe(data => {
       this.productList.push(data);
       this.dataSource = new MatTableDataSource(this.productList);
-      this.infoMessage = "Product is created";
+      this.infoMessage = "Product created";
       $('#productModal').modal('hide');
     },err => {
       this.errorMessage = "Unexpected error occurred.";
@@ -77,7 +77,7 @@ export class ProductListComponent implements OnInit {
       let itemIndex = this.productList.findIndex(item=>item.id == this.selectedProduct.id);
       this.productList[itemIndex] = this.selectedProduct;
       this.dataSource = new MatTableDataSource(this.productList);
-      this.infoMessage = "Mission is completed";
+      this.infoMessage = "Product updated";
       $('#productModal').modal('hide');
     },err => {
       this.errorMessage = "Unexpected error occurred.";
@@ -96,7 +96,7 @@ export class ProductListComponent implements OnInit {
         this.productList.splice(itemIndex, 1);
       }
       this.dataSource = new MatTableDataSource(this.productList);
-      this.infoMessage = "Mission is completed";
+      this.infoMessage = "Product deleted";
       $('#deleteModal').modal('hide');
     },err => {
       this.errorMessage = "Unexpected error occurred.";

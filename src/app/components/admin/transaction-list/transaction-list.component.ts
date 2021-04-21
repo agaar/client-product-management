@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
 import {MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource, } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 import { MatSort} from '@angular/material/sort';
 import { Transaction } from 'src/app/model/transaction';
 
