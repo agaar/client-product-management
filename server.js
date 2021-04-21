@@ -1,61 +1,30 @@
-// Get dependencies
-const express = require('express');
+const express = require ('express')
+const bodyParser = require('body-parser')
+const cors = require('cors')
 const path = require('path');
-const http = require('http');
-const bodyParser = require('body-parser');
-const proxy = require('express-http-proxy');
-const cors = require('cors');
 
-const app = express();
 
-// Parsers for POST data
-app.use(bodyParser.json({limit: '20mb'}));
-//app.use(bodyParser.urlencoded({ extended: false, limit: '20mb' }));
+const PORT = process.env.PORT || 4200
+//const api = require('./routes/api')
+const app = express()
+app.use(cors())
 
-app.use(cors());
-
+app.use(bodyParser.json())
+//app.use(express.static(__dirname + '/dist/intro-shop-fe'));
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));
 
-// Set our api routes proxy to point to spring boot server
-//app.use('/server', proxy('http://localhost:8091'));
-const PROXY_URL = process.env.PROXY_URL || 'http://localhost:8080'
-// Set our api routes proxy to point to spring boot server
-//app.use('/server', proxy('http://localhost:8080'));
-//app.use('/server', proxy('https://raga-admin-panel-be.herokuapp.com'));
-console.log('proxy url=' + PROXY_URL);
-app.use('/server', proxy(PROXY_URL));
+//app.use('/api', api)
+app.get('/hello', function(req, res){
+    res.send('Hello from NodeJS Server on Heroku with Angular')
+})
 
-app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  // handle OPTIONS method
-  if ('OPTIONS' == req.method) {
-      return res.sendStatus(200);
-  } else {
-      next();
-  }
-});
-
-// Catch all other routes and return the index file
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html')); 
-});
+    res.sendFile(path.join(__dirname, 'dist/index.html'));           // works
+    //res.sendFile(path.join(__dirname, 'dist/bike-ui/index.html')); // does not work
+    //res.sendFile('index.html', {root: './dist/bike-ui'});          // does not work
+  });
 
-/**
- * Get port from environment and store in Express.
- */
- const PORT = process.env.PORT || 4200   //4200 or take one from ENV
- app.set('port', PORT);
-
-/**
- * Create HTTP server.
- */
-const server = http.createServer(app);
-
-/**
- * Listen on provided port, on all network interfaces.
- */
- server.listen(PORT, () => console.log('API running on port=' + PORT ));
+app.listen(PORT, function(){
+    console.log('Server running on localhost:' + PORT)
+})
