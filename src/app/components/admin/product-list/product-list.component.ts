@@ -50,7 +50,7 @@ export class ProductListComponent implements OnInit {
 
   editProductRequest(product: Product) {
     this.selectedProduct = product;
-    $("#productModal").modal('show');
+    $('#productModal').modal('show');
   }
 
   saveProduct(){
@@ -65,7 +65,7 @@ export class ProductListComponent implements OnInit {
     this.adminService.createProduct(this.selectedProduct).subscribe(data => {
       this.productList.push(data);
       this.dataSource = new MatTableDataSource(this.productList);
-      this.infoMessage = "Mission is completed";
+      this.infoMessage = "Product is created";
       $('#productModal').modal('hide');
     },err => {
       this.errorMessage = "Unexpected error occurred.";
@@ -78,7 +78,7 @@ export class ProductListComponent implements OnInit {
       this.productList[itemIndex] = this.selectedProduct;
       this.dataSource = new MatTableDataSource(this.productList);
       this.infoMessage = "Mission is completed";
-      $("#productModal").modal('hide');
+      $('#productModal').modal('hide');
     },err => {
       this.errorMessage = "Unexpected error occurred.";
     });
@@ -86,7 +86,7 @@ export class ProductListComponent implements OnInit {
 
   deleteProductRequest(product: Product) {
     this.selectedProduct = product;
-    $("#deleteModal").modal('show');
+    $('#deleteModal').modal('show');
   }
 
   deleteProduct(){
@@ -97,7 +97,7 @@ export class ProductListComponent implements OnInit {
       }
       this.dataSource = new MatTableDataSource(this.productList);
       this.infoMessage = "Mission is completed";
-      $("#deleteModal").modal('hide');
+      $('#deleteModal').modal('hide');
     },err => {
       this.errorMessage = "Unexpected error occurred.";
     });
