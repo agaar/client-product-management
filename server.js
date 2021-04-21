@@ -26,6 +26,19 @@ const PROXY_URL = process.env.PROXY_URL || 'http://localhost:8080'
 console.log('proxy url=' + PROXY_URL);
 app.use('/server', proxy(PROXY_URL));
 
+app.use(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  // handle OPTIONS method
+  if ('OPTIONS' == req.method) {
+      return res.sendStatus(200);
+  } else {
+      next();
+  }
+});
+
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html')); 
