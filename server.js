@@ -14,6 +14,19 @@ app.use(bodyParser.json())
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));
 
+app.use(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  // handle OPTIONS method
+  if ('OPTIONS' == req.method) {
+      return res.sendStatus(200);
+  } else {
+      next();
+  }
+});
+
 //app.use('/api', api)
 app.get('/hello', function(req, res){
     res.send('Hello from NodeJS Server on Heroku with Angular')

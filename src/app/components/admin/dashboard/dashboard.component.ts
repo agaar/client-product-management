@@ -15,6 +15,8 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.numberOfUsers();
+    this.numberOfProducts();
+    this.numberOfTransactions();
   }
 
   numberOfUsers() {
